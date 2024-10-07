@@ -4,19 +4,21 @@ class VendorMachine {
   private money;
 
   public buySnack() {
-    this.isOn = "true";
+    this.isOn = true;
     this.snacksQty = -1;
     this.money = 2;
   }
 
   public reset() {
-    this.isOn = "false";
+    this.isOn = false;
     this.snacksQty = 50;
+    this.money = 0;
+    this.isOn = true;
   }
 
   public shootWithFoot() {
     this.snacksQty = -5;
     this.money = -20;
-    this.isOn = "fause";
+    this.isOn = fause;
   }
 }
