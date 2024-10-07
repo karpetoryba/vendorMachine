@@ -5,6 +5,7 @@ class VendorMachine {
 
   public buySnack() {
     this.isOn = "true";
+    this.snacksQty = -1;
     this.money = 2;
   }
 
