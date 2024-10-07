@@ -25,24 +25,37 @@ class VendorMachine {
     if (this.snacksQty > 50) {
       throw new Error("la machine est deja rempli");
     }
-    this.snacksQty = this.snacksQty + (50 - this.snacksQty);
+    this.snacksQty = this.calculateLeftSnackQty();
 
     this.money = 0;
     this.isOn = true;
   }
+  // on fais des methodes pour que notre code puis être plus lisible
+  private calculateLeftSnackQty() {
+    return this.snacksQty + (50 - this.snacksQty);
+  }
 
   public shootWithFoot(): void {
-    if (this.snacksQty < 5) {
-      throw new Error("bien essayé, mais y'a plus des snacks ");
-    }
-    this.snacksQty = -5;
-    //
-    if (this.money < 20) {
-      throw new Error("bien essayé, mais y'a plus d'argent");
-    }
-
-    this.money = -20;
     this.isOn = false;
+
+    this.dropMoney();
+    this.dropSnacks();
+  }
+
+  private dropMoney() {
+    let moneyToDrop = 20;
+    if (this.money < 20) {
+      moneyToDrop = this.money;
+    }
+    this.money = this.money - moneyToDrop;
+  }
+
+  private dropSnacks() {
+    let snacksQtyToDrop = 5;
+    if (this.snacksQty < 5) {
+      snacksQtyToDrop = this.snacksQty;
+    }
+    this.snacksQty = this.snacksQty - snacksQtyToDrop;
   }
 }
 
