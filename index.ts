@@ -19,6 +19,6 @@ class VendorMachine {
   public shootWithFoot() {
     this.snacksQty = -5;
     this.money = -20;
-    this.isOn = fause;
+    this.isOn = false;
   }
 }
